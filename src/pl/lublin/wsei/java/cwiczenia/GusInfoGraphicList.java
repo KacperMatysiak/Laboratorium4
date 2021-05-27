@@ -13,7 +13,7 @@ public class GusInfoGraphicList {
         String contents;
 
         try{
-            contents = new String(Files.readAllBytes(Paths.get("gusInfoGraphic.xml")));
+            contents = new String(Files.readAllBytes(Paths.get(gusFileName)));
         }
         catch(IOException e){
             System.out.println("Błąd wczytywania pliku gusInfoGraphic.xml=> "+ e.getLocalizedMessage());

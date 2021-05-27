@@ -1,5 +1,7 @@
 package pl.lublin.wsei.java.cwiczenia;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -45,4 +47,5 @@ public class Controller {
         }
 
     }
+
 }
