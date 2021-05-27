@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 
@@ -23,7 +24,7 @@ public class Controller {
     public Button btnPokazInfografike;
 
     FileChooser fileChooser = new FileChooser();
-    FileChooser.ExtensionFilter xmlFilter = new FileChooser.ExtensionFilter( "Pliki XML (*.xml", "*.xml");
+    FileChooser.ExtensionFilter xmlFilter = new FileChooser.ExtensionFilter("Pliki XML (*.xml", "*.xml");
 
     public ListView IstInfografiki;
     ObservableList<String> tytuly = FXCollections.observableArrayList();
@@ -32,20 +33,20 @@ public class Controller {
     @FXML
     public void initialize() {
         fileChooser.getExtensionFilters().add(xmlFilter);
+        IstInfografiki.getSelectionModel().selectedIndexProperty().addListener(
+                new ChangeListener<Number>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Number> observable, Number old_val, Number new_val) {
+                        int index = new_val.intValue();
+                        if (index != -1) {
+                            txtAdresStrony.setText(igList.infografiki.get(index).adresStrony);
+                            Image image = new Image(igList.infografiki.get(index).adresMiniaturki);
+                            imgMiniaturka.setImage(image);
+                        } else {
+                            txtAdresStrony.setText("");
+                        }
+                    }
+                }
+        );
     }
-
-    public void btnOpenFileAction(ActionEvent actionEvent) {
-        File file = fileChooser.showOpenDialog(null);
-        if (file != null) {
-            igList = new GusInfoGraphicList(file.getAbsolutePath());
-            lbFile.setText(file.getAbsolutePath());
-            for (infografika ig: igList.infografiki) tytuly.add(ig.tytul);
-            IstInfografiki.setItems(tytuly);
-        }
-        else {
-            lbFile.setText("Prosze wczytać plik...");
-        }
-
-    }
-
 }
