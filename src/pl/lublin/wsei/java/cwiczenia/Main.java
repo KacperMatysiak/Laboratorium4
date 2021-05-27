@@ -9,6 +9,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class Main extends Application {
 
+
     @Override
     public void start(@NotNull Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("gusInfoGraphic.fxml"));

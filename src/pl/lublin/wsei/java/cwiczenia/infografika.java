@@ -57,4 +57,13 @@ public class infografika {
 
 
     }
+
+    public void print() {
+        System.out.print("infografika: "+
+                "\n\t1.tytul: " + tytul+
+                "\n\t2.adres grafiki: "+ adresGrafiki +
+                "\n\t3.adres strony: "+adresStrony+
+                "\n\t4.adres miniaturki: "+ adresMiniaturki +
+                "\n\t5.rozmiar: "+wysokosc+"x"+szerokosc + "\n\n");
+    }
 }
