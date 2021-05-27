@@ -5,14 +5,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import org.jetbrains.annotations.NotNull;
 
 public class Main extends Application {
 
 
     @Override
-    public void start(@NotNull Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("gusInfoGraphic.fxml"));
+    public void start( Stage primaryStage) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("gusInfoGraphic.fxml"));
+        Parent root = loader.load();
+        Controller controller = loader.getController();
+        controller.setHostServices(this.getHostServices());
+        controller.setStage(primaryStage);
+
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 800, 700));
         primaryStage.show();
