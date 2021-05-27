@@ -10,6 +10,7 @@ public class TestFileRead {
             String contents = new String(Files.readAllBytes(Paths.get("C:\\Users\\pulaw\\IdeaProjects\\Laboratorium4a\\src\\pl\\lublin\\wsei\\java\\cwiczenia\\gusInfoGraphic.xml")));
             System.out.println("Zawartość pliku.xml: ");
             System.out.println(contents);
+
         }
 
          catch (IOException e) {
